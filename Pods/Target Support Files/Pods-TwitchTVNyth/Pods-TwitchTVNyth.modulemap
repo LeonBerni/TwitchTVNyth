@@ -1,0 +1,6 @@
+framework module Pods_TwitchTVNyth {
+  umbrella header "Pods-TwitchTVNyth-umbrella.h"
+
+  export *
+  module * { export * }
+}

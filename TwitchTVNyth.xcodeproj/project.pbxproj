@@ -12,9 +12,12 @@
 		35185D432005323C00DA96BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35185D412005323C00DA96BD /* Main.storyboard */; };
 		35185D452005323C00DA96BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35185D442005323C00DA96BD /* Assets.xcassets */; };
 		35185D482005323C00DA96BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35185D462005323C00DA96BD /* LaunchScreen.storyboard */; };
+		35185D502005356A00DA96BD /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35185D4F2005356A00DA96BD /* APIController.swift */; };
+		D175ED5C92A7D56D0E6D01BE /* Pods_TwitchTVNyth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637253E9C37A7FB0EEB86B0B /* Pods_TwitchTVNyth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26CC79948B7234EC27CF755A /* Pods-TwitchTVNyth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitchTVNyth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitchTVNyth/Pods-TwitchTVNyth.debug.xcconfig"; sourceTree = "<group>"; };
 		35185D3A2005323C00DA96BD /* TwitchTVNyth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitchTVNyth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35185D3D2005323C00DA96BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35185D3F2005323C00DA96BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		35185D442005323C00DA96BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35185D472005323C00DA96BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35185D492005323C00DA96BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35185D4F2005356A00DA96BD /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		637253E9C37A7FB0EEB86B0B /* Pods_TwitchTVNyth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitchTVNyth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		707FF80EFD9BFBF450ED9897 /* Pods-TwitchTVNyth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitchTVNyth.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitchTVNyth/Pods-TwitchTVNyth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D175ED5C92A7D56D0E6D01BE /* Pods_TwitchTVNyth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				35185D3C2005323C00DA96BD /* TwitchTVNyth */,
 				35185D3B2005323C00DA96BD /* Products */,
+				5DF6AA194D701ADEC9B114EC /* Pods */,
+				40DC66D158638289BC5C183A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,40 @@
 		35185D3C2005323C00DA96BD /* TwitchTVNyth */ = {
 			isa = PBXGroup;
 			children = (
+				355DDCA9200544A6009E2421 /* Controllers */,
 				35185D3D2005323C00DA96BD /* AppDelegate.swift */,
-				35185D3F2005323C00DA96BD /* ViewController.swift */,
 				35185D412005323C00DA96BD /* Main.storyboard */,
 				35185D442005323C00DA96BD /* Assets.xcassets */,
 				35185D462005323C00DA96BD /* LaunchScreen.storyboard */,
 				35185D492005323C00DA96BD /* Info.plist */,
 			);
 			path = TwitchTVNyth;
+			sourceTree = "<group>";
+		};
+		355DDCA9200544A6009E2421 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				35185D3F2005323C00DA96BD /* ViewController.swift */,
+				35185D4F2005356A00DA96BD /* APIController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		40DC66D158638289BC5C183A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				637253E9C37A7FB0EEB86B0B /* Pods_TwitchTVNyth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5DF6AA194D701ADEC9B114EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26CC79948B7234EC27CF755A /* Pods-TwitchTVNyth.debug.xcconfig */,
+				707FF80EFD9BFBF450ED9897 /* Pods-TwitchTVNyth.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35185D4C2005323C00DA96BD /* Build configuration list for PBXNativeTarget "TwitchTVNyth" */;
 			buildPhases = (
+				4438C85BDBFFF8A9AD416099 /* [CP] Check Pods Manifest.lock */,
 				35185D362005323C00DA96BD /* Sources */,
 				35185D372005323C00DA96BD /* Frameworks */,
 				35185D382005323C00DA96BD /* Resources */,
+				97C5B3E1316BA2D7A0B592A5 /* [CP] Embed Pods Frameworks */,
+				EAB20707F6A89BC712C6D79C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +169,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4438C85BDBFFF8A9AD416099 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwitchTVNyth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97C5B3E1316BA2D7A0B592A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TwitchTVNyth/Pods-TwitchTVNyth-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitchTVNyth/Pods-TwitchTVNyth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAB20707F6A89BC712C6D79C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitchTVNyth/Pods-TwitchTVNyth-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		35185D362005323C00DA96BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -138,6 +230,7 @@
 			files = (
 				35185D402005323C00DA96BD /* ViewController.swift in Sources */,
 				35185D3E2005323C00DA96BD /* AppDelegate.swift in Sources */,
+				35185D502005356A00DA96BD /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +365,7 @@
 		};
 		35185D4D2005323C00DA96BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26CC79948B7234EC27CF755A /* Pods-TwitchTVNyth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +380,7 @@
 		};
 		35185D4E2005323C00DA96BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 707FF80EFD9BFBF450ED9897 /* Pods-TwitchTVNyth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
