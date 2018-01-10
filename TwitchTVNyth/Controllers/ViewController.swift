@@ -9,18 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    @IBOutlet weak var collectionView: UICollectionView!
+    var twitchModelArray: [TwitchModel]?
+    var pageLink: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIController.getAcessToken(completion:{ response in
-            if (response){
-                APIController.getTopGames(completion: {JSONData in
-                    
-                })
+        twitchModelArray = Array()
+        APIController.getTopGames(link: nil, completion: {JSONData,nextLink  in
+            for item in JSONData {
+                self.twitchModelArray?.append(TwitchModel(data: item ))
             }
+            self.pageLink = nextLink
+            self.collectionView.reloadData()
         })
     }
     
+    @IBAction func refreshButton(_ sender: Any) {
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,21 +34,35 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    
-    
+extension ViewController: UICollectionViewDelegate {
+
 }
 
-extension ViewController: UITableViewDelegate {
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (twitchModelArray?.count)!
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "twitchCell", for: indexPath) as! TwitchCollectionViewCell
+        let twitchModel = twitchModelArray![indexPath.row]
+        cell.twitchModel = twitchModel
+        cell.gameNameLabel.text = twitchModel.name
+        APIController.getGamePoster(url: cell.twitchModel?.imageLink, cell: cell)
+        return cell
+    }
+}
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        APIController.getTopGames(link: pageLink, completion: {JSONData,nextLink  in
+            for item in JSONData {
+                self.twitchModelArray?.append(TwitchModel(data: item ))
+            }
+            self.pageLink = nextLink
+            self.collectionView.reloadData()
+        })
+    }
     
 }
 

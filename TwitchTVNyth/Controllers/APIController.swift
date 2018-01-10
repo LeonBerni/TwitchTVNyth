@@ -8,9 +8,19 @@
 
 import Foundation
 import Alamofire
-//import AlamofireImage
+import AlamofireImage
 
 class APIController {
+    
+    class func getGamePoster(url: String?, cell: TwitchCollectionViewCell) -> () {
+        if (url != nil){
+            Alamofire.request(url!).responseImage { response in
+                if let image = response.result.value {
+                    cell.gameLogoImageView.image = image
+                }
+            }
+        }
+    }
     
     class func getAcessToken(completion: @escaping (_ result: Bool) -> Void) {
         
@@ -41,7 +51,39 @@ class APIController {
         }
     }
     
-    class func getTopGames(completion: (_ result: NSDictionary) -> Void) {
+    class func getTopGames(link: String?, completion: @escaping (_ result: [NSDictionary], _ nextLink: String) -> Void) {
+        var url = ""
+        if (link == nil){
+            url = "https://api.twitch.tv/kraken/games/top?limit=30"
+        } else {
+            url = link!
+        }
         
+        
+        let header: [String : String] = [ "Client-ID": "ja4j5rpnh4itkq9vdq8twxol1cuuyx" ]
+        
+        Alamofire.request(url, method: .get, parameters: ["":""], encoding: JSONEncoding.default, headers: header).responseJSON { response in
+            //to get status code
+            if let status = response.response?.statusCode {
+                print(response)
+                switch(status){
+                case 200:
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        guard let linksFromJson = JSON.value(forKey: "_links") as? [String: String]
+                            else{
+                                return;
+                        }
+                        
+                        print(linksFromJson["next"]!)
+                        completion(JSON.value(forKey: "top") as! [NSDictionary], linksFromJson["next"]! as! String)
+                    }
+                case 400:
+                    print("Done requesting")
+                default:
+                    print("Something went wrong")
+                }
+            }
+        }
     }
 }
