@@ -23,6 +23,27 @@ class APIController {
         }
     }
     
+    class func getGameDescription(giantbombID: String, completion: @escaping (_ description: String) -> Void){
+        let url = String(format: "http://www.giantbomb.com/api/game/%@/?api_key=67813afdc1110df5103b7ada30e2fc899627971c&format=json&field_list=description", giantbombID)
+        Alamofire.request(url, method: .post, parameters: [:], encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
+            //to get status code
+            if let status = response.response?.statusCode {
+                switch(status){
+                case 200:
+                    if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        let gameDesc = JSON.value(forKeyPath: "results.description") as! String
+                        
+                        let str = gameDesc.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+                        completion(str)
+                    }
+                default:
+                    print("Whoops")
+                }
+            }
+        }
+    }
+    
     class func getAcessToken(completion: @escaping (_ result: Bool) -> Void) {
         
         let url = "https://api.twitch.tv/kraken/oauth2/token"

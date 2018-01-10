@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var gameViewers: UILabel!
     @IBOutlet weak var gameChannels: UILabel!
     @IBOutlet weak var gamePopularity: UILabel!
+    @IBOutlet weak var gameDescTextView: UITextView!
     var twitchModel: TwitchModel?
     
     override func viewDidLoad() {
@@ -24,7 +25,9 @@ class DetailViewController: UIViewController {
         self.gameViewers.text = String(format: "Current number of viewers: %@", (twitchModel?.viewers.stringValue)!)
         self.gameChannels.text = String(format: "Current number of channels: %@", (twitchModel?.numberChannels.stringValue)!)
         self.gamePopularity.text = String(format: "Popularity: %@", (twitchModel?.popularity.stringValue)!)
-        // Do any additional setup after loading the view.
+        APIController.getGameDescription(giantbombID: (twitchModel?.giantbombID.stringValue)!) { gameDesc in
+            self.gameDescTextView.text = gameDesc
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
