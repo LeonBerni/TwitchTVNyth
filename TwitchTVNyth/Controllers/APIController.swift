@@ -32,7 +32,11 @@ class APIController {
                 case 200:
                     if let result = response.result.value {
                         let JSON = result as! NSDictionary
-                        let gameDesc = JSON.value(forKeyPath: "results.description") as! String
+                        guard let gameDesc = JSON.value(forKeyPath: "results.description") as? String
+                            else {
+                                completion("")
+                                return;
+                        }
                         
                         let str = gameDesc.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
                         completion(str)
@@ -94,9 +98,9 @@ class APIController {
                         let JSON = result as! NSDictionary
                         guard let linksFromJson = JSON.value(forKey: "_links") as? [String: String]
                             else{
+                                completion([NSDictionary()], "")
                                 return;
                         }
-                        
                         print(linksFromJson["next"]!)
                         completion(JSON.value(forKey: "top") as! [NSDictionary], linksFromJson["next"]! as! String)
                     }

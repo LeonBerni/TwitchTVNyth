@@ -14,7 +14,7 @@ class TwitchCollectionViewCell: UICollectionViewCell {
     var twitchModel: TwitchModel?
     
     override func prepareForReuse() {
-        self.gameLogoImageView.image = UIImage()
+        self.gameLogoImageView.image = nil
         gameNameLabel.text = ""
     }
 }

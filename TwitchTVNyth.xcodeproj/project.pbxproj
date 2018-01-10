@@ -389,7 +389,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 26CC79948B7234EC27CF755A /* Pods-TwitchTVNyth.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitchTVNyth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -404,7 +404,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 707FF80EFD9BFBF450ED9897 /* Pods-TwitchTVNyth.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitchTVNyth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

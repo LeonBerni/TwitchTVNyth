@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var twitchModelArray: [TwitchModel]?
     var pageLink: String = ""
     var twitchModelToDetail: TwitchModel?
+    var loadingGames = false
     override func viewDidLoad() {
         super.viewDidLoad()
         twitchModelArray = Array()
@@ -26,6 +27,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func refreshButton(_ sender: Any) {
+        collectionView.setContentOffset(CGPoint.zero, animated: true)
+        APIController.getTopGames(link: nil, completion: {JSONData,nextLink  in
+            self.twitchModelArray = Array()
+            for item in JSONData {
+                self.twitchModelArray?.append(TwitchModel(data: item ))
+            }
+            self.pageLink = nextLink
+            self.collectionView.reloadData()
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,7 +51,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDelegate {
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = self.collectionView.cellForItem(at: indexPath) as! TwitchCollectionViewCell
         twitchModelToDetail = cell.twitchModel
@@ -63,18 +73,26 @@ extension ViewController: UICollectionViewDataSource {
         APIController.getGamePoster(url: cell.twitchModel?.imageLink, cell: cell)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (indexPath.row == (twitchModelArray?.count)!-7 && !loadingGames) {
+            loadingGames = true
+            APIController.getTopGames(link: pageLink, completion: {JSONData,nextLink  in
+                for item in JSONData {
+                    self.twitchModelArray?.append(TwitchModel(data: item ))
+                }
+                self.pageLink = nextLink
+                self.collectionView.reloadData()
+                self.loadingGames = false
+            })
+        }
+    }
 }
 
 extension ViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        APIController.getTopGames(link: pageLink, completion: {JSONData,nextLink  in
-            for item in JSONData {
-                self.twitchModelArray?.append(TwitchModel(data: item ))
-            }
-            self.pageLink = nextLink
-            self.collectionView.reloadData()
-        })
+        
+        
     }
     
 }
-
