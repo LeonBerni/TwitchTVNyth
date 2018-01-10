@@ -17,6 +17,7 @@ class APIController {
             Alamofire.request(url!).responseImage { response in
                 if let image = response.result.value {
                     cell.gameLogoImageView.image = image
+                    cell.twitchModel?.image = image
                 }
             }
         }

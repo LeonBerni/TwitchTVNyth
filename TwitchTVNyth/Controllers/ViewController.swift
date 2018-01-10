@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var twitchModelArray: [TwitchModel]?
     var pageLink: String = ""
+    var twitchModelToDetail: TwitchModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         twitchModelArray = Array()
@@ -31,11 +32,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailVC = segue.destination as! DetailViewController
+        detailVC.twitchModel = twitchModelToDetail
+    }
+    
     
 }
 
 extension ViewController: UICollectionViewDelegate {
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = self.collectionView.cellForItem(at: indexPath) as! TwitchCollectionViewCell
+        twitchModelToDetail = cell.twitchModel
+        self.performSegue(withIdentifier: "detailSegue", sender: self)
+        
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {

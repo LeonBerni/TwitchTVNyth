@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -91,17 +93,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Siv-Mr-veo" id="gdE-OE-gej"/>
-                        <segue destination="f7V-TD-j9G" kind="show" id="dvU-K6-QAj"/>
+                        <segue destination="f7V-TD-j9G" kind="show" identifier="detailSegue" id="JyU-Zh-Whm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372" y="53.523238380809602"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="g3X-iu-dLf">
             <objects>
-                <viewController id="f7V-TD-j9G" sceneMemberID="viewController">
+                <viewController id="f7V-TD-j9G" customClass="DetailViewController" customModule="TwitchTVNyth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qmY-zc-lm7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,30 +115,26 @@
                                     <constraint firstAttribute="width" constant="200" id="pW2-WS-wCD"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Viewers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spJ-aj-dxg">
-                                <rect key="frame" x="16" y="346" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viewers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spJ-aj-dxg">
+                                <rect key="frame" x="17" y="330.5" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox9-ZN-eHa">
-                                <rect key="frame" x="16" y="317" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox9-ZN-eHa">
+                                <rect key="frame" x="17" y="306" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Channels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDX-Kn-uQp">
-                                <rect key="frame" x="16" y="375" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDX-Kn-uQp">
+                                <rect key="frame" x="17" y="355" width="76.5" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Popularity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fO-gL-BDA">
-                                <rect key="frame" x="16" y="404" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popularity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fO-gL-BDA">
+                                <rect key="frame" x="17" y="379.5" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -144,11 +142,41 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="0fO-gL-BDA" firstAttribute="firstBaseline" secondItem="CDX-Kn-uQp" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="0dq-RE-LR5"/>
+                            <constraint firstItem="Ox9-ZN-eHa" firstAttribute="top" secondItem="px7-KF-p6d" secondAttribute="bottom" constant="11" id="6l7-6b-amE"/>
+                            <constraint firstItem="Ox9-ZN-eHa" firstAttribute="leading" secondItem="px7-KF-p6d" secondAttribute="trailing" constant="8" id="GAD-7Q-6NG">
+                                <variation key="widthClass=compact" constant="-199"/>
+                            </constraint>
                             <constraint firstItem="px7-KF-p6d" firstAttribute="top" secondItem="Ka9-bR-Duv" secondAttribute="top" constant="20" id="RrL-5F-wFJ"/>
+                            <constraint firstItem="spJ-aj-dxg" firstAttribute="firstBaseline" secondItem="Ox9-ZN-eHa" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="ZdO-6i-RcZ"/>
+                            <constraint firstItem="CDX-Kn-uQp" firstAttribute="leading" secondItem="spJ-aj-dxg" secondAttribute="leading" id="cE1-ti-DT4"/>
+                            <constraint firstItem="Ox9-ZN-eHa" firstAttribute="top" secondItem="px7-KF-p6d" secondAttribute="top" id="f40-fp-L0a">
+                                <variation key="widthClass=compact" constant="286"/>
+                            </constraint>
+                            <constraint firstItem="spJ-aj-dxg" firstAttribute="leading" secondItem="Ox9-ZN-eHa" secondAttribute="leading" id="iXs-xv-Udq"/>
+                            <constraint firstItem="CDX-Kn-uQp" firstAttribute="firstBaseline" secondItem="spJ-aj-dxg" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="mh2-kp-8ez"/>
+                            <constraint firstItem="0fO-gL-BDA" firstAttribute="leading" secondItem="CDX-Kn-uQp" secondAttribute="leading" id="nWV-3g-cnM"/>
                             <constraint firstItem="px7-KF-p6d" firstAttribute="leading" secondItem="Ka9-bR-Duv" secondAttribute="leading" constant="16" id="uFg-8a-q9V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ka9-bR-Duv"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6l7-6b-amE"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="6l7-6b-amE"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="gameChannels" destination="CDX-Kn-uQp" id="kRI-mm-vqU"/>
+                        <outlet property="gameName" destination="Ox9-ZN-eHa" id="nRs-Xb-cMd"/>
+                        <outlet property="gamePopularity" destination="0fO-gL-BDA" id="hwR-ib-bID"/>
+                        <outlet property="gamePoster" destination="px7-KF-p6d" id="4uq-Es-beV"/>
+                        <outlet property="gameViewers" destination="spJ-aj-dxg" id="vgH-B8-jba"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Zc-jh-13I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

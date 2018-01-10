@@ -10,10 +10,25 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var gamePoster: UIImageView!
+    @IBOutlet weak var gameName: UILabel!
+    @IBOutlet weak var gameViewers: UILabel!
+    @IBOutlet weak var gameChannels: UILabel!
+    @IBOutlet weak var gamePopularity: UILabel!
+    var twitchModel: TwitchModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = twitchModel?.name
+        self.gameName.text = twitchModel?.name
+        self.gameViewers.text = String(format: "Current number of viewers: %@", (twitchModel?.viewers.stringValue)!)
+        self.gameChannels.text = String(format: "Current number of channels: %@", (twitchModel?.numberChannels.stringValue)!)
+        self.gamePopularity.text = String(format: "Popularity: %@", (twitchModel?.popularity.stringValue)!)
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.gamePoster.image = twitchModel?.image
     }
 
     override func didReceiveMemoryWarning() {
