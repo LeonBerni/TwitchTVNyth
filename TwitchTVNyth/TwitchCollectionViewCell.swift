@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitchTVDetail
 
 class TwitchCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var gameLogoImageView: UIImageView!

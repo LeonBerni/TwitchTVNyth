@@ -1,0 +1,22 @@
+{
+  "name": "TwitchTVDetail",
+  "version": "0.1.0",
+  "summary": "A short description of TwitchTVDetail.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/leonberni@hotmail.com/TwitchTVDetail",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "leonberni@hotmail.com": "leonberni@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/LeonBerni/TwitchTVDetail.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "TwitchTVDetail/Classes/**/*"
+}

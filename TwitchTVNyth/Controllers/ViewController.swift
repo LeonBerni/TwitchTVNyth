@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitchTVDetail
 
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -41,13 +42,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailVC = segue.destination as! DetailViewController
-        detailVC.twitchModel = twitchModelToDetail
-    }
-    
-    
 }
 
 extension ViewController: UICollectionViewDelegate {
@@ -55,7 +49,10 @@ extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = self.collectionView.cellForItem(at: indexPath) as! TwitchCollectionViewCell
         twitchModelToDetail = cell.twitchModel
-        self.performSegue(withIdentifier: "detailSegue", sender: self)
+        let vc = TwitchTVDetailViewController.initFromNIB()
+        vc.twitchModel = twitchModelToDetail
+        vc.dataSource = self
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }
@@ -89,10 +86,12 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+extension ViewController: TwitchTVDetailViewControllerDataSource {
+    func getDescription(vc: TwitchTVDetailViewController) {
+        APIController.getGameDescription(giantbombID: (twitchModelToDetail?.giantbombID?.stringValue)!) { gameDesc in
+            vc.attributeGameDesc(string: gameDesc)
+        }
         
     }
-    
 }
+

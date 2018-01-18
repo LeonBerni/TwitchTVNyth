@@ -8,17 +8,17 @@
 
 import UIKit
 
-class TwitchModel: NSObject {
+public class TwitchModel: NSObject {
 
-    var name : String? = ""
-    var image: UIImage? = UIImage()
-    var imageLink: String? = ""
-    var viewers: NSNumber? = 0
-    var numberChannels: NSNumber? = 0
-    var popularity: NSNumber? = 0
-    var giantbombID: NSNumber? = 0
+    public var name : String? = ""
+    public var image: UIImage? = UIImage()
+    public var imageLink: String? = ""
+    public var viewers: NSNumber? = 0
+    public var numberChannels: NSNumber? = 0
+    public var popularity: NSNumber? = 0
+    public var giantbombID: NSNumber? = 0
     
-    init(data: NSDictionary) {
+    public init(data: NSDictionary) {
         name = data.value(forKeyPath: "game.name") as? String
         imageLink = data.value(forKeyPath: "game.box.large") as? String
         viewers = data.value(forKeyPath: "viewers") as? NSNumber

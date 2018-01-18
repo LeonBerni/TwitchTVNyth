@@ -13,8 +13,6 @@
 		35185D452005323C00DA96BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35185D442005323C00DA96BD /* Assets.xcassets */; };
 		35185D482005323C00DA96BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35185D462005323C00DA96BD /* LaunchScreen.storyboard */; };
 		35185D502005356A00DA96BD /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35185D4F2005356A00DA96BD /* APIController.swift */; };
-		352F84F420069E66002656CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352F84F320069E66002656CF /* DetailViewController.swift */; };
-		355DDCAC20054F76009E2421 /* TwitchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DDCAB20054F76009E2421 /* TwitchModel.swift */; };
 		355DDCAE200555AD009E2421 /* TwitchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DDCAD200555AD009E2421 /* TwitchCollectionViewCell.swift */; };
 		D175ED5C92A7D56D0E6D01BE /* Pods_TwitchTVNyth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637253E9C37A7FB0EEB86B0B /* Pods_TwitchTVNyth.framework */; };
 /* End PBXBuildFile section */
@@ -29,8 +27,6 @@
 		35185D472005323C00DA96BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35185D492005323C00DA96BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35185D4F2005356A00DA96BD /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		352F84F320069E66002656CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		355DDCAB20054F76009E2421 /* TwitchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchModel.swift; sourceTree = "<group>"; };
 		355DDCAD200555AD009E2421 /* TwitchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchCollectionViewCell.swift; sourceTree = "<group>"; };
 		637253E9C37A7FB0EEB86B0B /* Pods_TwitchTVNyth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitchTVNyth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		707FF80EFD9BFBF450ED9897 /* Pods-TwitchTVNyth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitchTVNyth.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitchTVNyth/Pods-TwitchTVNyth.release.xcconfig"; sourceTree = "<group>"; };
@@ -69,7 +65,6 @@
 		35185D3C2005323C00DA96BD /* TwitchTVNyth */ = {
 			isa = PBXGroup;
 			children = (
-				355DDCAA20054F5B009E2421 /* Model */,
 				355DDCA9200544A6009E2421 /* Controllers */,
 				35185D3D2005323C00DA96BD /* AppDelegate.swift */,
 				35185D412005323C00DA96BD /* Main.storyboard */,
@@ -86,17 +81,8 @@
 			children = (
 				35185D3F2005323C00DA96BD /* ViewController.swift */,
 				35185D4F2005356A00DA96BD /* APIController.swift */,
-				352F84F320069E66002656CF /* DetailViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		355DDCAA20054F5B009E2421 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				355DDCAB20054F76009E2421 /* TwitchModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		40DC66D158638289BC5C183A /* Frameworks */ = {
@@ -214,11 +200,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TwitchTVNyth/Pods-TwitchTVNyth-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TwitchTVDetail/TwitchTVDetail.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitchTVDetail.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -247,10 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				355DDCAC20054F76009E2421 /* TwitchModel.swift in Sources */,
 				35185D402005323C00DA96BD /* ViewController.swift in Sources */,
 				35185D3E2005323C00DA96BD /* AppDelegate.swift in Sources */,
-				352F84F420069E66002656CF /* DetailViewController.swift in Sources */,
 				35185D502005356A00DA96BD /* APIController.swift in Sources */,
 				355DDCAE200555AD009E2421 /* TwitchCollectionViewCell.swift in Sources */,
 			);

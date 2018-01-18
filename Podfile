@@ -1,4 +1,6 @@
 # Uncomment the next line to define a global platform for your project
+source "https://github.com/CocoaPods/Specs.git"
+
 platform :ios, '9.0'
 
 target 'TwitchTVNyth' do
@@ -8,4 +10,5 @@ target 'TwitchTVNyth' do
     # Pods for TwitchTVNyth
     pod 'Alamofire'
     pod 'AlamofireImage'
+    pod 'TwitchTVDetail', :git => 'https://github.com/LeonBerni/TwitchTVDetail.git', :branch => '0.1.0'
 end
